@@ -20,17 +20,54 @@
 
     <h1 id="top">Rent a Pet</h1>
 
-    <hr/>
     <h2>About Us:</h2>
-<section id="History">
-<h3>Rent a Pet History</h3>
-<p>In the Beginning ...
-    Rent A Pet began with a family that loved dogs.  George Smith and his wife Carol owned two Irish Setters.  These dogs were pets to the Smith family children and extended family members. 
-    <br> One day as George was walking his dogs in the park, he noticed how they attracted the attention of passing women.  They seemed to like to stop what they were doing and ask him about his dogs. 
-    <br> A young woman remarked that she would love to have a big dog like that to walk, but she had a small apartment and couldn't keep a large dog. This brief encounter was the beginning of an idea.  What if there were others, possible many others, who wanted companionship of pets without the responsibility? Maybe people would be willing to pay to rent or borrow a pet for a short period of time.</p>
+    
+    <hr/>
+
+    <section id="History">
+      <h3>Rent a Pet History</h3>
+
+      <div class="content">
+        <img src="RentAPet/AboutUs/IrishSetterSm.jpg" alt="Irish Setters" class="thumbnailright">
+        <p>In the Beginning ...
+            Rent A Pet began with a family that loved dogs. George Smith and his wife Carol owned two Irish Setters. These dogs were pets to the Smith family children and extended family members. 
+            <br> One day as George was walking his dogs in the park, he noticed how they attracted the attention of passing women. They seemed to like to stop what they were doing and ask him about his dogs. 
+            <br> A young woman remarked that she would love to have a big dog like that to walk, but she had a small apartment and couldn't keep a large dog. This brief encounter was the beginning of an idea. What if there were others, possibly many others, who wanted companionship of pets without the responsibility? Maybe people would be willing to pay to rent or borrow a pet for a short period of time.
+        </p>
+    </div>
+
 </section>
 
-  <hr/>
+<style>
+  /* Make the section content fit within the area between <hr/> and no movement when resized */
+  section#History {
+      position: relative;
+      padding-bottom: 20px; /* Space between image and <hr/> */
+  }
+
+  .content {
+      display: flex;
+      align-items: flex-start; /* Keeps image and text aligned at the top */
+      gap: 15px; /* Creates space between the image and the text */
+  }
+
+  .thumbnailright {
+      width: 150px; /* Fixed size for the image */
+      height: 200px; /* Fixed height for the image */
+      object-fit: cover; /* Ensures the image covers the area without distorting */
+  }
+
+  p {
+      flex-grow: 1; /* Text takes the remaining space */
+      overflow: hidden; /* Prevents text overflow */
+  }
+
+  hr {
+      margin-top: 30px; /* Space before <hr/> */
+  }
+</style>
+
+<hr/>
 
   <section id="pros-cons">
   <h3>Advantages & Disadvantages</h3>  
@@ -68,16 +105,13 @@
 
 <section id="unique">
 <h3> What Makes Us Unique ...</h3> 
- <p>Rent a Pet has expanded from its early location in Provo and now has franchises in Logan, Bountiful, Salt Lake City, and St. George. <br> 
-  They employ their own trained vet and have yet to have any accidents due to their rental pets. <br>  
-  Rent a Pet also employs an animal trainer who works with the dogs and horses daily.</p> 
-  
-<p> Rent a Pet has attracted many satisfied customers.<br>
-    The company frequently provides their services to senior citizens who reside in retirement homes that prohibit pet ownership. A senior can enjoy a dog or cat for the day and even take them for a walk. 
-    <br> Surprisingly, young men looking to strike up a conversation with young women often rent dogs that like jogging or playing Frisbee.  Specially trained trick dogs can be rented for parties or appearances in movies or commercials.
-  <br>  The most unusual pet, snakes, are usually rented for Halloween or other occasions where the customer wants to use them for shock value.</p> 
- 
-  <p><a href="#top">Return to Top</a></p>
+<div class="content">
+  <img src="RentAPet/AboutUs/FrisbeeDogSm.jpg" alt="Frisbee dog" class="thumbnailright">
+    <p>Rent a Pet has expanded from its early location in Provo and now has franchises in Logan, Bountiful, Salt Lake City, and St. George. They employ their own trained vet and have yet to have any accidents due to their rental pets. Rent a Pet also employs an animal trainer who works with the dogs and horses daily.</p> 
+
+    <p>Rent a Pet has attracted many satisfied customers. The company frequently provides their services to senior citizens who reside in retirement homes that prohibit pet ownership. A senior can enjoy a dog or cat for the day and even take them for a walk. Surprisingly, young men looking to strike up a conversation with young women often rent dogs that like jogging or playing Frisbee. Specially trained trick dogs can be rented for parties or appearances in movies or commercials. The most unusual pet, snakes, are usually rented for Halloween or other occasions where the customer wants to use them for shock value.</p> 
+</div>
+<p><a href="#top">Return to Top</a></p>
 </section>
 
 <hr/>
