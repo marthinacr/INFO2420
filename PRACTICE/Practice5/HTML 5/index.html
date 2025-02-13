@@ -1,45 +1,346 @@
 ﻿<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0090)https://brentclarkgithub.github.io/INFOSpring2025/Practices/HTMLPractice5/HTML5/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 
 <title>HTML Practice 5 - Using Images and Color</title>
 
 <style type="text/css">
-	body {
-		background-color: #f5edf6;
-		color: #000000;
-		font-family: 'Times New Roman', Times, serif;
-	}
 
-	h1 {
-		color: #000000;
-		font-size: x-large;
-	}
+body { font-family: 'Times New Roman', Times, serif;
+		 	 background-color: #f8f6f4;
+}
 
-	a {
-            color: #f37fe7;
-            text-decoration: none;
-        }
+.left { float: left;
+							   padding-right: 15px;
+								 border: none;
+}
 
-        a:visited {
-            color: #f374eb;
-        }
+.right {float: right;
+			 				 padding-left: 15px;
+							 border: none;
+}
 
-        a:hover {
-            color: #683162;
-            text-decoration: underline;
-	}
+a:link {color: #6f5f7f;  }
+a:visited {color: #333333; }
+a:hover {color: #d18875; }
+
 </style>
 
+<style>.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #4b6652;
+  --rdp-background-color: #f8f6f4;
+  --rdp-accent-color-dark: #735d89;
+  --rdp-background-color-dark: #6f5f7f;
+  --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
+  --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75); /* Outline border for focused _and_ selected elements */
+
+  margin: 1em;
+}
+
+/* Hide elements for devices that are not screen readers */
+.rdp-vhidden {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute !important;
+  top: 0;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  border: 0 !important;
+}
+
+/* Buttons */
+.rdp-button_reset {
+  appearance: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  color: inherit;
+  outline: none;
+  background: none;
+  font: inherit;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.rdp-button {
+  border: 2px solid transparent;
+}
+
+.rdp-button[disabled] {
+  opacity: 0.25;
+}
+
+.rdp-button:not([disabled]) {
+  cursor: pointer;
+}
+
+.rdp-button:focus:not([disabled]),
+.rdp-button:active:not([disabled]) {
+  color: inherit;
+  border: var(--rdp-outline);
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-button:hover:not([disabled]) {
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-months {
+  display: flex;
+}
+
+.rdp-month {
+  margin: 0 1em;
+}
+
+.rdp-month:first-child {
+  margin-left: 0;
+}
+
+.rdp-month:last-child {
+  margin-right: 0;
+}
+
+.rdp-table {
+  margin: 0;
+  max-width: calc(var(--rdp-cell-size) * 7);
+  border-collapse: collapse;
+}
+
+.rdp-with_weeknumber .rdp-table {
+  max-width: calc(var(--rdp-cell-size) * 8);
+  border-collapse: collapse;
+}
+
+.rdp-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  text-align: left;
+}
+
+.rdp-multiple_months .rdp-caption {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.rdp-caption_dropdowns {
+  position: relative;
+  display: inline-flex;
+}
+
+.rdp-caption_label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 0.25em;
+  white-space: nowrap;
+  color: #735d89;
+  border: 0;
+  border: 2px solid transparent;
+  font-family: inherit;
+  font-size: 140%;
+  font-weight: bold;
+}
+
+.rdp-nav {
+  white-space: nowrap;
+}
+
+.rdp-multiple_months .rdp-caption_start .rdp-nav {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.rdp-multiple_months .rdp-caption_end .rdp-nav {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.rdp-nav_button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  padding: 0.25em;
+  border-radius: 100%;
+}
+
+/* ---------- */
+/* Dropdowns  */
+/* ---------- */
+
+.rdp-dropdown_year,
+.rdp-dropdown_month {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.rdp-dropdown {
+  appearance: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  opacity: 0;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.rdp-dropdown[disabled] {
+  opacity: unset;
+  color: unset;
+}
+
+.rdp-dropdown:focus:not([disabled]) + .rdp-caption_label,
+.rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
+  border: var(--rdp-outline);
+  border-radius: 6px;
+  background-color: var(--rdp-background-color);
+}
+
+.rdp-dropdown_icon {
+  margin: 0 0 0 5px;
+}
+
+.rdp-head {
+  border: 0;
+}
+
+.rdp-head_row,
+.rdp-row {
+  height: 100%;
+}
+
+.rdp-head_cell {
+  vertical-align: middle;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: 700;
+  text-align: center;
+  height: 100%;
+  height: var(--rdp-cell-size);
+  padding: 0;
+}
+
+.rdp-tbody {
+  border: 0;
+}
+
+.rdp-tfoot {
+  margin: 0.5em;
+}
+
+.rdp-cell {
+  width: var(--rdp-cell-size);
+  height: 100%;
+  height: var(--rdp-cell-size);
+  padding: 0;
+  text-align: center;
+}
+
+.rdp-weeknumber {
+  font-size: 0.75em;
+}
+
+.rdp-weeknumber,
+.rdp-day {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--rdp-cell-size);
+  max-width: var(--rdp-cell-size);
+  height: var(--rdp-cell-size);
+  margin: 0;
+  border: 2px solid transparent;
+  border-radius: 100%;
+}
+
+.rdp-day_today:not(.rdp-day_outside) {
+  font-weight: bold;
+}
+
+.rdp-day_selected:not([disabled]),
+.rdp-day_selected:focus:not([disabled]),
+.rdp-day_selected:active:not([disabled]),
+.rdp-day_selected:hover:not([disabled]) {
+  color: white;
+  background-color: var(--rdp-accent-color);
+}
+
+.rdp-day_selected:focus:not([disabled]) {
+  border: var(--rdp-outline-selected);
+}
+
+.rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp[dir='rtl'] .rdp-day_range_start:not(.rdp-day_range_end) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.rdp[dir='rtl'] .rdp-day_range_end:not(.rdp-day_range_start) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rdp-day_range_end.rdp-day_range_start {
+  border-radius: 100%;
+}
+
+.rdp-day_range_middle {
+  border-radius: 0;
+}
+</style>
 </head>
 <body>
 
 
 <h1 id="Top">Butterflies and Moths</h1>
 
+<a href="Fritillary.html"><img alt="FritillarySm (15K)" src="./Images/Thumbnails/FritillarySm.jpg" class="left" height="71" width="100"></a>
 <h2>Fun Butterfly and Moth Facts</h2>
-
 
 <p>	Here are some interesting and strange butterfly facts. 
 	You can use these to amaze your family and friends. 
@@ -59,24 +360,16 @@
 		and South America.</li>
 </ol>
 <p><a href="http://www.thebutterflysite.com/facts.shtml" target="_blank">
-	The ButterflySite.com</a>
-</p>
+	The ButterflySite.com</a></p>
 
-<hr/>
-
-<a href="Fritillary.html">
-	<img src="Images/Thumbnails/FritillarySm.jpg" alt="Fritillary Butterflies" class="left" width="100" height="71">
-</a>
+<hr>
 
 <h2>Some Butterfly Favorites</h2>
 
 <h3>Monarchs</h3>
 
-<a href="Monarch.html">
-	<img src="Images/Thumbnails/MonarchSm.jpg" alt="Monarch Butterflies" class="thumbnailleft" width="100" height="71">
-</a>
-
 <p>
+<a href="Monarch.html"><img alt="MonarchSm (14K)" src="./Images/Thumbnails/MonarchSm.jpg" class="left" height="71" width="100"></a>
 	The Monarch butterfly, also known as the milkweed butterfly, 
 	is not able to survive cold winters of North America. 
 	Eastern Monarchs will migrate to Mexico and those in the 
@@ -85,10 +378,8 @@
 	is from the Great Lakes to the Gulf of Mexico, a distance 
 	of about 2,000 miles, and return to the north again in the spring. 
 </p>
-<a href="Chrysalis.html">
-	<img src="Images/Thumbnails/ChrysalisSm.jpg" alt="Chrysalis Butterflies" class="right" width="100" height="71"> 
-</a>
 <p>
+<a href="Chrysalis.html"><img alt="ChrysalisSm (14K)" src="./Images/Thumbnails/ChrysalisSm.jpg" class="right" height="71" width="100"></a>
 	The Monarch cocoon is called a chrysalis.  As the butterfly 
 	begins to metamorphose, the chrysalis begins to darken and 
 	will turn transparent just before the butterfly emerges.  
@@ -99,16 +390,13 @@
 </p>
 
 <p>
-	<a href="http://en.wikipedia.org/wiki/Monarch_butterfly" 
-		target="_blank">Monarch(butterfly) Wikipedia</a>
+	<a href="http://en.wikipedia.org/wiki/Monarch_butterfly" target="_blank">Monarch(butterfly) Wikipedia</a>
 </p>
 
 <h3>Swallowtails</h3>
 
-<a href="TigerSwallowtail.html">
-	<img src="Images/Thumbnails/TigerSm.jpg" alt="TigerSwallowtail" class="left" width="100" height="71">
-</a>
 <p>
+<a href="TigerSwallowtail.html"><img alt="TigerSm (16K)" src="./Images/Thumbnails/TigerSm.jpg" class="left" height="71" width="100"></a>
 	Swallowtail butterflies, being large, colorful, and attractive, 
 	have been the target of butterfly collectors in earlier times. 
 	The adults are often tailed like the forked tail of some swallows, 
@@ -116,10 +404,9 @@
 	and though the majority are tropical, members of the family 
 	are found on all continents except Antarctica.  
 </p>
-<a href="ZebraSwallowtail.html">
-	<img src="Images/Thumbnails/ZebraSm.jpg" alt="Swallowtail Butterflies" class="right" width="100" height="71">
-</a>
+
 <p>
+<a href="ZebraSwallowtail.html"><img alt="ZebraSm (23K)" src="./Images/Thumbnails/ZebraSm.jpg" class="right" height="71" width="100"></a>
 	The Zebra Swallowtail has triangular wings with long tails. 
 	It has some distinctive black and white markings on its wings 
 	and some small red and blue markings on both bottom corners 
@@ -128,16 +415,13 @@
 </p>
 
 <p>
-	<a href="http://en.wikipedia.org/wiki/Papilionidae" 
-		target="_blank">Swallowtail (butterfly) Wikipedia</a>
+	<a href="http://en.wikipedia.org/wiki/Papilionidae" target="_blank">Swallowtail (butterfly) Wikipedia</a>
 </p>
 
 <h3>Blue Morpho</h3>
 
-<a href="BlueMorpho.html">
-	<img src="Images/Thumbnails/MorphoSm.jpg" alt="Blue Morpho" class="left" width="100" height="71">
-</a>
 <p>
+<a href="BlueMorpho.html"><img alt="MorphoSm (25K)" src="./Images/Thumbnails/MorphoSm.jpg" class="left" height="71" width="100"></a>
 	Many Morpho butterflies are colored in metallic, shimmering 
 	shades of blue and green. These colors are not a result of 
 	pigmentation but are an example of iridescence, the sun 
@@ -154,14 +438,14 @@
 </p> 
 
 <p>
-	<a href="http://en.wikipedia.org/wiki/Morpho" 
-		target="_blank">Morpho(butterfly) Wikipedia</a>
+	<a href="http://en.wikipedia.org/wiki/Morpho" target="_blank">Morpho(butterfly) Wikipedia</a>
 </p>
 
 <p>
-	<a href="#Top">Return to Top</a> 
+	<a href="index.html">Return to Top</a> 
 </p>
 
-</body>
-</html>
 
+
+
+</body></html>
