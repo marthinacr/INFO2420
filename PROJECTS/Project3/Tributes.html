@@ -3,13 +3,386 @@
 <head>
 <meta charset="UTF-8">
 <title>Tributes: Rent a Pet</title>
-<link rel="stylesheet" href="styles.css">
+<style>
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color: #F8F6F4;  /* Softer off-white background */
+      color: #333333; /* Dark gray for better readability */
+    }
+  
+    span { float: left;
+           width: 0.7em;
+           font-size: 300%;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+           color: #d18875;
+           line-height: 80%;
+    }
+  
+    h1 { font-family: Georgia, 'Times New Roman', Times, serif;
+         text-align: center;
+         border-style: inset;
+              border-color: #333333;
+              font-size: 45px;
+    }
+  
+    h2 { font-family: 'Times New Roman', Times, serif;
+         font-size: 30px;
+    }
+  
+    h3 {font-family: Georgia, 'Times New Roman', Times, serif;}
+  
+    h4 { text-decoration: none #d18875;
+         font-variant: small-caps;
+         font-size: 20px;
+    }
+  
+    hr + p { text-align: center;
+             font-variant: small-caps;
+             }
+  
+    a:link {color:#5c7766}
+    a:hover{color: #d18875;}
+    a.visited{color:#6f5f7f}
+  
+    hr {
+      height: 0.2em;
+      background-color: #333333;
+    }
+  
+    .left {float: left;
+                  margin-right: 20px;
+                  border:double;
+                  border-color: #5c7766;
+                  border-radius: 10px;
+                  padding: 5px;
+                  background-color: #F8F6F4;
+    }
+  
+    .right {float: right;
+                  margin-left: 20px;
+                  border: double;
+                  border-radius: 10px;
+                  padding: 5px;
+                  border-color: #5c7766;
+                  background-color: #F8F6F4;
+  
+    }
+  </style>
+  
+  <style>
+  .rdp {
+    --rdp-cell-size: 40px;
+    --rdp-accent-color: #4b6652;
+    --rdp-background-color: #f8f6f4;
+    --rdp-accent-color-dark: #5c7766;
+    --rdp-background-color-dark: #6f5f7f;
+    --rdp-outline: 2px solid var(--rdp-accent-color); /* Outline border for focused elements */
+    --rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75); /* Outline border for focused _and_ selected elements */
+  
+    margin: 1em;
+  }
+  
+  /* Hide elements for devices that are not screen readers */
+  .rdp-vhidden {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute !important;
+    top: 0;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    border: 0 !important;
+  }
+  
+  /* Buttons */
+  .rdp-button_reset {
+    appearance: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    color: inherit;
+    outline: none;
+    background: none;
+    font: inherit;
+  
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+  
+  .rdp-button {
+    border: 2px solid transparent;
+  }
+  
+  .rdp-button[disabled] {
+    opacity: 0.25;
+  }
+  
+  .rdp-button:not([disabled]) {
+    cursor: pointer;
+  }
+  
+  .rdp-button:focus:not([disabled]),
+  .rdp-button:active:not([disabled]) {
+    color: inherit;
+    border: var(--rdp-outline);
+    background-color: var(--rdp-background-color);
+  }
+  
+  .rdp-button:hover:not([disabled]) {
+    background-color: var(--rdp-background-color);
+  }
+  
+  .rdp-months {
+    display: flex;
+  }
+  
+  .rdp-month {
+    margin: 0 1em;
+  }
+  
+  .rdp-month:first-child {
+    margin-left: 0;
+  }
+  
+  .rdp-month:last-child {
+    margin-right: 0;
+  }
+  
+  .rdp-table {
+    margin: 0;
+    max-width: calc(var(--rdp-cell-size) * 7);
+    border-collapse: collapse;
+  }
+  
+  .rdp-with_weeknumber .rdp-table {
+    max-width: calc(var(--rdp-cell-size) * 8);
+    border-collapse: collapse;
+  }
+  
+  .rdp-caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .rdp-multiple_months .rdp-caption {
+    position: relative;
+    display: block;
+    text-align: center;
+  }
+  
+  .rdp-caption_dropdowns {
+    position: relative;
+    display: inline-flex;
+  }
+  
+  .rdp-caption_label {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0 0.25em;
+    white-space: nowrap;
+    color: currentColor;
+    border: 0;
+    border: 2px solid transparent;
+    font-family: inherit;
+    font-size: 140%;
+    font-weight: bold;
+  }
+  
+  .rdp-nav {
+    white-space: nowrap;
+  }
+  
+  .rdp-multiple_months .rdp-caption_start .rdp-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+  
+  .rdp-multiple_months .rdp-caption_end .rdp-nav {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+  
+  .rdp-nav_button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--rdp-cell-size);
+    height: var(--rdp-cell-size);
+    padding: 0.25em;
+    border-radius: 100%;
+  }
+  
+  /* ---------- */
+  /* Dropdowns  */
+  /* ---------- */
+  
+  .rdp-dropdown_year,
+  .rdp-dropdown_month {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .rdp-dropdown {
+    appearance: none;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: inherit;
+    opacity: 0;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  .rdp-dropdown[disabled] {
+    opacity: unset;
+    color: unset;
+  }
+  
+  .rdp-dropdown:focus:not([disabled]) + .rdp-caption_label,
+  .rdp-dropdown:active:not([disabled]) + .rdp-caption_label {
+    border: var(--rdp-outline);
+    border-radius: 6px;
+    background-color: var(--rdp-background-color);
+  }
+  
+  .rdp-dropdown_icon {
+    margin: 0 0 0 5px;
+  }
+  
+  .rdp-head {
+    border: 0;
+  }
+  
+  .rdp-head_row,
+  .rdp-row {
+    height: 100%;
+  }
+  
+  .rdp-head_cell {
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: 700;
+    text-align: center;
+    height: 100%;
+    height: var(--rdp-cell-size);
+    padding: 0;
+  }
+  
+  .rdp-tbody {
+    border: 0;
+  }
+  
+  .rdp-tfoot {
+    margin: 0.5em;
+  }
+  
+  .rdp-cell {
+    width: var(--rdp-cell-size);
+    height: 100%;
+    height: var(--rdp-cell-size);
+    padding: 0;
+    text-align: center;
+  }
+  
+  .rdp-weeknumber {
+    font-size: 0.75em;
+  }
+  
+  .rdp-weeknumber,
+  .rdp-day {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: var(--rdp-cell-size);
+    max-width: var(--rdp-cell-size);
+    height: var(--rdp-cell-size);
+    margin: 0;
+    border: 2px solid transparent;
+    border-radius: 100%;
+  }
+  
+  .rdp-day_today:not(.rdp-day_outside) {
+    font-weight: bold;
+  }
+  
+  .rdp-day_selected:not([disabled]),
+  .rdp-day_selected:focus:not([disabled]),
+  .rdp-day_selected:active:not([disabled]),
+  .rdp-day_selected:hover:not([disabled]) {
+    color: white;
+    background-color: var(--rdp-accent-color);
+  }
+  
+  .rdp-day_selected:focus:not([disabled]) {
+    border: var(--rdp-outline-selected);
+  }
+  
+  .rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .rdp[dir='rtl'] .rdp-day_range_start:not(.rdp-day_range_end) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .rdp[dir='rtl'] .rdp-day_range_end:not(.rdp-day_range_start) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .rdp-day_range_end.rdp-day_range_start {
+    border-radius: 100%;
+  }
+  
+  .rdp-day_range_middle {
+    border-radius: 0;
+  }
+  </style>
 </head>
 <body>
 
 <h1>Tributes to Rent a Pet</h1>
 
 <section>
+    <img src="RentAPet/AboutUs/Pet1.jpg" alt="Pet1" class="right" height="166" width="250">
     <h2>Bessie Anderson</h2>
     <p>My name is Bessie Anderson and I currently live in a retirement community that has a prohibition on pets.  I really wanted to have a small dog that I could take out for walks, but I though it was not possible.  Then I heard about Rent A Pet and I was excited to give it a try.  I found a  loveable bassett hound and met her when she was delivered to my apartment one Saturday morning.<br>
         We went through a long walk in the nearby park and had a wonderful time.  The great Rent A Pet staff came and picked her up two hours later and I didn't even have to worry about feeding or watering "Sophie".  We now have a regular appointment every Saturday, if the weather permits.  I know I look forward to getting in my weekly walk in the park and I imagine Sophie likes it as well. <br>
@@ -22,6 +395,7 @@
 <hr/>
 
 <section>
+    <img src="RentAPet/Tributes/GermanShephard3.jpg" alt="GermanShephard3" class="left" height="198" width="110">
     <h2>Jason Hutchingson</h2>
     <p>I'm a single college guy and live in an apartment with 3 other guys.  I always wanted to have a large breed of dog that would be a companion to take running or play catch with in the park.  With the help of Rent A Pet, I found Kamaikaze, a German Shephard.  He loves to run in the summer and even cross country ski in the winter.<br>
         The best thing Kazi likes to do is play Frisbee and run through an obstacle course.  I always attract the attention of girls in the park when we go there.  I even met my fiance, Janice, when she joined Kazi and me in a heated game of keep away.  One day I will have a home where I can have a yard to keep my own dog.  Until that time, I can still enjoy the companionship of a good dog.  <br>
@@ -32,6 +406,7 @@ Jason Hutchingson</p>
 
 <hr/>
 <section>
+    <img src="RentAPet/AboutUs/Snake1.jpg" alt="Snake1" class="right" height="168" width="250">
     <h2>Michael Pinette</h2>
     <p>
         My business requires me to travel quite a bit.  So it would be hard for me to own a pet of my own.  I would have to constantly find someone to pet sit, or I would have to pay for boarding the pet.  I also like to surprise and shock my friends with my unusual pets.<br>
@@ -46,6 +421,7 @@ Jason Hutchingson</p>
 <hr/>
 
 <section>
+    <img src="RentAPet/Tributes/Horse1Sm.jpg" alt="Horse1Sm" class="left" height="200" width="110">
     <h2>Melinda Morrison</h2>
     <p>
         As a young girl, I developed a love of horses.  But I grew up in the city and never had the chance to own my own horse.  I was delighted to find Rent A Pet.  They have several horses to choose from for riders of different levels.<br>
