@@ -3,7 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <title>Rent a Pet - Graphics</title>
-
+<style>
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color: #F8F6F4;  /* Softer off-white background */
+      color: #333333; /* Dark gray for better readability */
+    }
+  
+    span { float: left;
+           width: 0.7em;
+           font-size: 300%;
+           font-family: Georgia, 'Times New Roman', Times, serif;
+           color: #d18875;
+           line-height: 80%;
+    }
+  
+    h1 { font-family: Georgia, 'Times New Roman', Times, serif;
+         text-align: center;
+         border-style: inset;
+              border-color: #333333;
+              font-size: 45px;
+    }
+  
+    h2 { font-family: 'Times New Roman', Times, serif;
+         font-size: 30px;
+    }
+  
+    h3 {font-family: Georgia, 'Times New Roman', Times, serif;}
+  
+    h4 { text-decoration: none #d18875;
+         font-variant: small-caps;
+         font-size: 20px;
+    }
+  
+    hr + p { text-align: center;
+             font-variant: small-caps;
+             }
+  
+    a:link {color:#5c7766}
+    a:hover{color: #d18875;}
+    a.visited{color:#6f5f7f}
+  
+    hr {
+      height: 0.2em;
+      background-color: #333333;
+    }
+  
+    .left {float: left;
+                  margin-right: 20px;
+                  border:double;
+                  border-color: #5c7766;
+                  border-radius: 10px;
+                  padding: 5px;
+                  background-color: #F8F6F4;
+    }
+  
+    .right {float: right;
+                  margin-left: 20px;
+                  border: double;
+                  border-radius: 10px;
+                  padding: 5px;
+                  border-color: #5c7766;
+                  background-color: #F8F6F4;
+  
+    }
+    </style>
 <style>
         #thumbs, #image {
             width: 900px;
@@ -32,6 +96,14 @@
         .center{
         text-align: center;
         }
+
+        .center-container {
+        display: flex;
+        flex-direction: column; /* Stacks items vertically */
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
     
     </style>
     
@@ -52,7 +124,7 @@
             'Women and Dog'
                 );
                     
-        var imgPath = "PROJECTS/Project6/Pet";
+        var imgPath = "Pet/";
                 
         function swapImage(imgID) {
         
@@ -82,26 +154,29 @@
         
         <body onload="preloadImages()">
         
-            <div align="center">
-                <div>
-                    <a href="https://marthinacr.github.io/INFO2420/PROJECTS/Project6/graphics-1.htm" onmouseover="document.getElementById(&#39;print&#39;).src=&#39;Images/print6.jpg&#39;;" onmouseout="document.getElementById(&#39;print&#39;).src=&#39;Images/print5.jpg&#39;;">
-                        <img src="./Rent a Pet - Graphics_files/print5.jpg" width="200" height="50" id="print" alt="Print Page" style="border:none;">
+         <div class="center-container"> 
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button onclick="window.print()" style="border: none; background: none; cursor: pointer;">
+                    <img src="print2.png" width="50" height="50" alt="Print Page">
+                </button>
+            </div>
+            
+            <div>
+                <a href="https://marthinacr.github.io/INFO2420/PROJECTS/Project3/AboutUs.html"
+                    onmouseover="document.getElementById('logo').src='logo.png';"
+                    onmouseout="document.getElementById('logo').src='logo.jpg';">
+                        <img src="Logo.jpg" width="133" height="126" id="logo" alt="Logo" style="border:none;">
                     </a>
                 </div>
-            
-                <div>
-                    <a href="https://marthinacr.github.io/INFO2420/PROJECTS/Project3/AboutUs.html" onmouseover="document.getElementById(&#39;logo&#39;).src=&#39;Images/logo2.jpg&#39;;" onmouseout="document.getElementById(&#39;logo&#39;).src=&#39;Logo.png&#39;;">
-                        <img src="./Rent a Pet - Graphics_files/Logo.jpg" width="133" height="126" id="logo" alt="Logo" style="border:none;">
-                    </a>
-                </div>
-            
+            </div>
                 <br>
                 <br>
                 <br>
                 <br>
         
             <div id="thumbs">
-                <img src="Thumbnail/DogTrick2Lg.png" alt="CDog Performing a Trick" onmouseover="swapImage(0);" />
+                <img src="Thumbnail/DogTrick2Lg.png" alt="Dog Performing a Trick" onmouseover="swapImage(0);" />
                 <img src="Thumbnail/HuntingDogs.png" alt="Two Dogs" onmouseover="swapImage(1);" />
                 <img src="Thumbnail/KidsDog.png" alt="Dog and Kids Portrait" onmouseover="swapImage(2);" />
                 <img src="Thumbnail/Pet1.png" alt="Women and Dog" onmouseover="swapImage(3);" />
