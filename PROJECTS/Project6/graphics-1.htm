@@ -184,6 +184,10 @@ footer {
                         tmpImg.src = imgPath + imgArray[i];
                     }
                 }
+
+                document.getElementById("printButton").addEventListener("click", function() {
+        window.print();
+    });
         </script>
         
 </head>
@@ -193,7 +197,7 @@ footer {
          <div class="center-container"> 
 
             <div style="text-align: center; margin-top: 20px;">
-                <button onclick="window.print()" style="border: none; background: none; cursor: pointer;">
+                <button id="printButton" style="border: none; background: none; cursor: pointer;">
                     <img src="print2.png" width="50" height="50" alt="Print Page">
                 </button>
             </div>
