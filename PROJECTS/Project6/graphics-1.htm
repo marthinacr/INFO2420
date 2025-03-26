@@ -5,10 +5,13 @@
 <title>Rent a Pet - Graphics</title>
 <style>
     body {
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      background-color: #F8F6F4;  /* Softer off-white background */
-      color: #333333; /* Dark gray for better readability */
-    }
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url('background.jpg'); /* Ensure you have the correct image */
+    background-size: cover;
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-attachment: fixed; /* Ensure the background image stays fixed while scrolling */
+}
+
   
     span { float: left;
            width: 0.7em;
@@ -82,12 +85,15 @@
     
                 
         #thumbs img {
+            width: 150px; /* Set size for thumbnails */
+            height: auto;
             border: solid 5px #C9CBA3;
             margin: 5px;
         }
-    
-        #image{
-            height:500px;
+
+        #image img {
+            width: 500px; /* Set size for full-size image */
+            height: auto;
         }
     
         .instructions{
