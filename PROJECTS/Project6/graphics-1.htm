@@ -185,9 +185,7 @@ footer {
                     }
                 }
 
-                document.getElementById("printButton").addEventListener("click", function() {
-        window.print();
-    });
+               
         </script>
         
 </head>
@@ -197,9 +195,11 @@ footer {
          <div class="center-container"> 
 
             <div style="text-align: center; margin-top: 20px;">
-                <button id="printButton" style="border: none; background: none; cursor: pointer;">
-                    <img src="print2.png" width="50" height="50" alt="Print Page">
-                </button>
+                <a href="https://marthinacr.github.io/INFO2420/PROJECTS/Project6/graphics-1.htm"
+                onmouseover="document.getElementById('print').src='print1.png';"
+                onmouseout="document.getElementById('print').src='print2.png';">
+                <img src="print2.png" width="50" height="50" id="print" alt="Print Page" style="border:none;">
+            </a>
             </div>
             
             <div>
