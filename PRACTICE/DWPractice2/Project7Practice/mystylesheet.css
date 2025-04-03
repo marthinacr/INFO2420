@@ -1,0 +1,122 @@
+/* General Styles */
+body {
+    font-family: "Times New Roman", Times, serif;
+	background-image: url('Images/background.gif');
+    color: #374151; /* Slate Gray */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    width: 760px;
+	height: 150px;
+	background-color:#CCCCCC; 
+	text-align: center;
+	padding-top: 10px;
+	border: dashed
+	medium navy;
+	margin: auto;
+}
+
+/* Navigation */
+nav {
+    float: left;
+	width: 110px; 
+	padding-left: 10px;	
+}
+
+.logoleft {
+	float: left; 
+	padding-top: 30px;
+	padding-left: 15px;
+}
+
+nav a {
+     border: 2px inset #CCCCCC; 
+	background-color: maroon; 
+	line-height: 250%; 
+	color: #FFFFFF; 
+	font-weight: bold; 
+	font-size: 17px; 
+	text-decoration: none;
+}
+
+nav a:hover {
+    color: yellow; 
+	border: 2px outset
+#CCCCCC;
+}
+
+/* Article */
+article {
+	float: left; 
+	width: 600px; 
+	padding: 5px;
+	text-align: center;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* Sections */
+section {
+    width: 760px;
+	background-image:
+	url('Images/inner_background.gif'); 
+	background-repeat: repeat-y; 
+	overflow: hidden; 
+	border-right:dashed medium navy; 
+	border-left: dashed medium navy;
+	margin: auto;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    background-color: #10B981; /* Emerald Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #F97316; /* Sunset Orange */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+	width: 760px; 
+	height:70px; 
+	border:dashed medium navy;
+	background-color: #CCCCCC;
+	margin: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    nav a {
+        font-size: 16px;
+        margin: 0 10px;
+    }
+
+    header {
+        font-size: 24px;
+    }
+}
