@@ -7,12 +7,66 @@
 <script type="text/javascript" src="myscripts.js"></script>
 </head>
 
-<body>
-<h2>Welcome to Rent a Pet!</h2>
-<p>
-If you love to interact with pets like we do, you should enjoy looking around this site.  
-Take a look at our Pet Profiles and take the opportunity to complete our survey.
-</p>
+<body onload="preloadImages()">
+
+<header>
+
+    <a href="/PROJECTS/Project7/Home.html" onmouseover="document.logo.src=logo2.src;" class="logoleft"
+    onmouseout="document.logo.src=logo1.src">
+    <img src="/PROJECTS/Project7/images/Logo.jpg" width="150" height="175" name="logo"
+    style="border:solid thick #808080;">
+</a>
+
+    <img alt="Banner" height="175" src="/PROJECTS/Project7/images/Banner.jpg" width="505"
+    style="border: solid thick #808080;">
+
+</header>
+
+<section>
+
+    <nav>
+        <a href="/PROJECTS/Project7/Home.html">Home</a><br>
+        <a href="/PROJECTS/Project3/AboutUs.html">About Us</a><br>
+        <a href="/PROJECTS/Project3/Tributes.html">Tributes</a><br></nav>
+
+    <article>
+        <h2>Welcome to Rent a Pet!</h2>
+        <p>
+        If you love to interact with pets like we do,
+        you should enjoy looking around this site.  
+        Take a look at our Pet Profiles and take the 
+        opportunity to complete our survey.
+        </p>
+        
+        <div id="thumbs">
+        <img src="/PROJECTS/Project7/images/Thumbnail/DogTrick2Lg.png" alt="Dog Trick" onmouseover="swapImage(0);" />
+        <img src="/PROJECTS/Project7/images/Thumbnail/HuntingDogs.png" alt="Hunting Dogs" onmouseover="swapImage(1);" />
+        <img src="/PROJECTS/Project7/images/Thumbnail/KidsDog.png" alt="Kids and Dog" onmouseover="swapImage(2);" />
+        <img src="/PROJECTS/Project7/images/Thumbnail/Pet1.png" alt="Lady and Dog" onmouseover="swapImage(3);" />
+
+        </div>
+        <div id="image">
+
+            <img id="theImage" src="/PROJECTS/Project7/images/Pet/DogTrick2Lg.jpg" alt="Dog" />
+            <h3 id="bottomText">Dog doing Trick</h3>
+        </div>
+
+<br>
+<img alt="snake" src="/PROJECTS/Project7/images/Snake1.jpg" class="right" height="100" width="150">
+<h3>What our customers have been saying...</h3>
+<blockquote>My business requires me to travel quite a bit.  So it would be hard for me to own a pet of my own. 
+     I would have to constantly find someone to pet sit, or I would have to pay for boarding the pet. 
+     I have rented a snake, a Saint Bernard... <br>
+    <a href="/PROJECTS/Project3/Tributes.html">More...</a></blockquote>
+
+    </article>    
+    
+</section>
+
+<footer>
+    <h5>&nbsp;This web site has been created solely for educational purposes.</h5>
+    <h5><a href="mailto:%2010996371@uvu.edu">10996371@uvu.edu</a></h5>
+</footer>
 
 </body>
 </html>
