@@ -10,43 +10,42 @@ logo2.src = "images/logo.png"
 }
 
 
-	var imgArray = new Array(
-		'DogTrick2Lg.jpg',
-		'HuntingDogsLg.jpg',
-		'KidsDogLg.jpg',
-		'Pet1Lg.jpg'
-	);
+var imgArray = new Array(
+	'DogTrick2Lg.jpg',
+	'HuntingDogsLg.jpg',
+	'KidsDogLg.jpg',
+	'Pet1Lg.jpg'
+);
 
 
-	var titleArray = new Array(
-		'Dog doing a Trick',
-		'Two Hunting Dogs',
-		'Kids and Dog Portrait',
-		'Women and Dog'
+ var titleArray = new Array(
+	'Dog Performing Tricks',
+	'Two Dogs',
+	'Dog and Boys Portrait',
+	'Women and Dog'
+		);
+			
+var imgPath = "/Project7/images/Pet/";
 		
-	);
-		
-	var imgPath = "images/Pet/";
-	
-	function swapImage(imgID) {
+function swapImage(imgID) {
 
-		var theImage = document.getElementById('theImage');
-		var textDiv = document.getElementById('bottomText');
+	var theImage = document.getElementById('theImage');
+	var textDiv = document.getElementById('bottomText');
 
-		var newImg;
-		var textTitle;
+	var newImg;
+	var textTitle;
 
-		newImg = imgArray[imgID];
-		theImage.src = imgPath + newImg;
+	newImg = imgArray[imgID];
+	theImage.src = imgPath + newImg;
 
-		textTitle=titleArray[imgID];
+	textTitle=titleArray[imgID];
 
-			  textDiv.innerHTML = textTitle;
-	}
-		
-	function preloadImages() {		
-		for(var i = 0; i < imgArray.length; i++) {
-			var tmpImg = new Image;
-			tmpImg.src = imgPath + imgArray[i];
+			textDiv.innerHTML = textTitle;
+}
+			
+		function preloadImages() {		
+			for(var i = 0; i < imgArray.length; i++) {
+				var tmpImg = new Image;
+				tmpImg.src = imgPath + imgArray[i];
+			}
 		}
-	}
