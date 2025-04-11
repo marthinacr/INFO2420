@@ -8,7 +8,7 @@ header {
     border: 4px solid #333333;
     width: 900px;
     height: 200px;
-    background-color: #F8F6F4;
+    background-color: #D18875;
     text-align: center;
     padding-top: 10px;
     margin: auto;
@@ -46,7 +46,7 @@ footer {
 .logoleft {
     float: left;
     padding-top: 1px;
-    padding-left: 20px;
+    padding-left: 45px;
 }
 
 h1 {
@@ -80,7 +80,7 @@ h4 {
     border: medium ridge #999999;
     border-radius: 5px;
     padding: 10px;
-    background-color: #F8F6F4;
+    background-color: #FFFFFF;
 }
 
 img {
@@ -123,7 +123,7 @@ nav a:hover {
 }
 
 .highlight {
-    background-color: #F8F6F4;
+    background-color: #D18875;
     color: #F8F6F4;
     font-weight: bold;
     padding: 2px 4px;
