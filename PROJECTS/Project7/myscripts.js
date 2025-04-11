@@ -25,7 +25,7 @@ var imgArray = new Array(
 	'Women and Dog'
 		);
 			
-var imgPath = "/Project7/images/Pet/";
+var imgPath = "images/Pet/";
 		
 function swapImage(imgID) {
 
